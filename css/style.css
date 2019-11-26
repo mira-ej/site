@@ -285,7 +285,7 @@ footer  {
   border-style: solid;
   position: absolute;
   cursor: pointer;
-  left: calc(50vw - 10px);
+  left: calc(50vw - 20px);
   bottom: 30px;
 }
 
