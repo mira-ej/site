@@ -25,6 +25,7 @@
 }
 
 img {
+  max-height: 100%;
   user-select: none;
 }
 
@@ -33,7 +34,7 @@ html {
 }
 
 body {
-  background-color: #212121;
+  background-color: #101010;
   color: #ffffff;
   overflow: hidden;
   margin: 0;
@@ -41,28 +42,33 @@ body {
     "Helvetica Neue", sans-serif;
 }
 
-body > section {
+#preloader {
+  background-color: inherit;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  transition: clip-path 1.5s cubic-bezier(0.5, 1.25, 0.75, -0.75);
+  clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 100%, 100% 100%, 100% 0%);
+}
+
+#app {
+  background-color: #212121;
+  border-radius: 8px;
+  position: relative;
+  margin: 24px;
+}
+
+#app > section {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-footer  {
-    clear:both;
-    height: 100vh;
-    width: 50%;
-    background-color: #212121;
-}
-
-#preloader {
-  background-color: #101010;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  transition: clip-path 1.5s cubic-bezier(0.5, 1.25, 0.75, -0.75);
-  clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 100%, 100% 100%, 100% 0%);
 }
 
 #scroll-down {
@@ -72,8 +78,8 @@ footer  {
   border-style: solid;
   position: absolute;
   cursor: pointer;
-  left: calc(50vw - 10px);
-  bottom: 30px;
+  left: calc(50% - 20px);
+  bottom: 40px;
 }
 
 #about {
@@ -85,8 +91,9 @@ footer  {
 }
 
 @media only screen and (max-width: 480px) {
-  body > section {
-    max-height: -webkit-fill-available;
+  #app > section {
+    height: fit-content;
+    min-height: -webkit-fill-available;
   }
 
   #about {
@@ -100,12 +107,63 @@ footer  {
   20%,
   50%,
   80% {
-    bottom: 30px;
-  }
-  40% {
     bottom: 40px;
   }
-  60% {
-    bottom: 35px;
+  40% {
+    bottom: 50px;
   }
+  60% {
+    bottom: 45px;
+  }
+}
+
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 1;
+}
+
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  border: 5px solid #f7be1a;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.ribbon::before {
+  top: 0;
+  left: 0;
+}
+
+.ribbon::after {
+  bottom: 0;
+  right: 0;
+}
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 15px 0;
+  background-color: #f7be1a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  cursor: default;
+  font-size: 13px;
+  line-height: 18px;
+  text-indent: 2ch;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  transform: rotate(45deg);
+  left: -25px;
+  top: 30px;
 }
