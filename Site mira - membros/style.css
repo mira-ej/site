@@ -1,0 +1,51 @@
+.members {
+  height: 100vh;
+  background-color: black;
+}
+.members__title {
+  color: #d3ab28;
+  text-align: center;
+  font-size: 35px;
+}
+.members__container {
+  height: 100%;
+}
+.members__container__cards {
+  display: flex;
+  height: 50%;
+}
+
+.members__container__card {
+  border: 5px solid white;
+  border-radius: 12px;
+  margin: 0 15px;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  background-color: white;
+  height: 50%;
+}
+.members__container__card__photo {
+  height: 40%;
+}
+.members__container__card__info {
+  height: 60%;
+  font-size: 20px;
+  background-color: #d3ab28;
+  border: 1px solid #d3ab28;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.members__container__card__info__name {
+  height: 20%;
+  margin: 5px 0;
+}
+
+.members__container__card__info__desc {
+  height: 60%;
+}
+
+.members__container__card__info__socials {
+  height: 20%;
+}
